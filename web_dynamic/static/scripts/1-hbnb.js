@@ -9,6 +9,6 @@ $(document).ready(function () {
       console.log('unchecked');
       amenityList.pop();
     }
-    $('div.amenities h4').text(amenityList).join(', ');
+    $('div.amenities h4').html(amenityList.join(', '));
   });
 });
