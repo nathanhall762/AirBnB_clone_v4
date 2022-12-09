@@ -8,18 +8,15 @@ $(document).ready(function () {
     }
     $('.amenities h4').html(amenities.join(', '));
   });
+  getStatus('http://c66a74704532.93090521.hbtn-cod.io:5001/api/v1/status/');
 });
 
-$.ajax({
-  url: 'http://0.0.0.0:5001/api/v1/status/',
-  type: 'GET',
-  dataType: 'json',
-  success: function (json) {
+function getStatus (url) {
+  $.get(url, function (json) {
     if (json.status === 'OK') {
       $('div#api_status').addClass('available');
     } else {
       $('div#api_status').removeClass('available');
     }
-  }
+  });
 }
-);
