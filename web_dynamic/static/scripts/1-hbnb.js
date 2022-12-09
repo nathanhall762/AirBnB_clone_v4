@@ -4,7 +4,7 @@ $(document).ready(function () {
   $('input[type=checkbox]').click(function () {
     if ($(this).is(':checked')) {
       console.log('checked');
-      $('div.h4').html('<p>test</p>');
+      $('div.h4').text('test');
     } else {
       console.log('unchecked');
     }
