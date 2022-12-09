@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
+	<head>
+		<meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="../static/styles/4-common.css?{{ cache_id }}">
     <link rel="stylesheet" type="text/css" href="../static/styles/3-header.css?{{ cache_id }}">
     <link rel="stylesheet" type="text/css" href="../static/styles/3-footer.css?{{ cache_id }}">
@@ -13,9 +13,10 @@
 	<script src="static/scripts/1-hbnb.js?{{ cache_id }}"></script>
   </head>
   <body>
-    <header>
-      <div class="logo"></div>
-    </header>
+	  <header>
+		  <div class="logo"></div>
+		</header>
+	<div>test</div>
     <div class="container">
       <section class="filters">
 	<div class="locations">
@@ -54,7 +55,6 @@
 	<!-- <h1>Places</h1> -->
 	{% for place in places %}
 	<article>
-	  <div>test</div>
 	  <div class="title_box">
 	    <h2>{{ place.name }}</h2>
 	    <div class="price_by_night">${{ place.price_by_night }}</div>
