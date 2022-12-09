@@ -1,13 +1,11 @@
-const $ = window.$;
-$(document).ready(function () {
-  const amenityList = [];
-  $('li :checkbox').change(function () {
-    if (this.checked) {
-      amenityList.push($(this).attr('data-name'));
-      $('.amenities h4').html(amenityList.join(', '));
-    } else {
-      amenityList.pop();
-      $('.amenities h4').html(amenityList.join(', '));
-    }
+$(document).ready(function() {
+    const amenities = [];
+    $('li :checkbox').change(function() {
+      if (this.checked) {
+        amenities.push($(this).attr('data-name'));
+      } else {
+        amenities.pop();
+      }
+      $('.amenities h4').html(amenities.join(', '));
+    });
   });
-});
