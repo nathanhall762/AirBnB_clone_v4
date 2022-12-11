@@ -21,7 +21,7 @@ function getStatus (url) {
   });
 }
 
-$.post('http://0.0.0.0:5001/api/v1/places_search/',
+$.post('http://c66a74704532.93090521.hbtn-cod.io:5001/api/v1/places_search/',
   {},
   function (data, status) {
     alert('Data: ' + data + '\nStatus: ' + status);
