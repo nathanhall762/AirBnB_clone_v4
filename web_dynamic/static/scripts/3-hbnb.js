@@ -1,9 +1,4 @@
 $(document).ready(function () {
-  $.post('http://c66a74704532.93090521.hbtn-cod.io:5001/api/v1/places_search/',
-    {},
-    function (data, status) {
-      alert('Data: ' + data + '\nStatus: ' + status);
-    });
   const amenities = [];
   $('li :checkbox').change(function () {
     if (this.checked) {
@@ -14,6 +9,7 @@ $(document).ready(function () {
     $('.amenities h4').html(amenities.join(', '));
   });
   getStatus('http://c66a74704532.93090521.hbtn-cod.io:5001/api/v1/status/');
+  fetchPlaces('http://c66a74704532.93090521.hbtn-cod.io:5001/api/v1/places_search/');
 });
 
 function getStatus (url) {
@@ -26,3 +22,8 @@ function getStatus (url) {
   });
 }
 
+function fetchPlaces (url) {
+  $.post(url, {}, function (data, status) {
+    alert('Data: ' + data + '\nStatus: ' + status);
+  });
+}
