@@ -8,8 +8,8 @@ $(document).ready(function () {
     }
     $('.amenities h4').html(amenities.join(', '));
   });
-  getStatus('http://c66a74704532.93090521.hbtn-cod.io:5001/api/v1/status/')
-  fetchPlaces('http://c66a74704532.93090521.hbtn-cod.io:5001/api/v1/places_search/');
+  fetchPlaces('http://c66a74704532.93090521.hbtn-cod.io:5001/api/v1/places_search/')
+  getStatus('http://c66a74704532.93090521.hbtn-cod.io:5001/api/v1/status/');
 });
 
 function getStatus (url) {
