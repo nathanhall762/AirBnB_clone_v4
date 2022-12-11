@@ -8,7 +8,8 @@ $(document).ready(function () {
     }
     $('.amenities h4').html(amenities.join(', '));
   });
-  fetchPlaces('http://c66a74704532.93090521.hbtn-cod.io:5001/api/v1/places_search/')
+  fetchPlaces('http://c66a74704532.93090521.hbtn-cod.io:5001/api/v1/places_search/');
+
   getStatus('http://c66a74704532.93090521.hbtn-cod.io:5001/api/v1/status/');
 });
 
@@ -20,10 +21,16 @@ function getStatus (url) {
       $('div#api_status').removeClass('available');
     }
   });
-};
+}
 
 function fetchPlaces (url) {
-  $.post(url, {}, function (data, status) {
-    console.log('Data: ' + data + '\nStatus: ' + status);
+  $.ajax({
+    url: url,
+    type: 'POST',
+    contentType: 'application/json',
+    data: '{}',
+    success: function (data) {
+      console.log('POST request successful:', data);
+    }
   });
 }
