@@ -32,8 +32,10 @@ $(document).ready(function () {
       amenities: amenities,
       success: function (data) {
         $('section.places').empty();
+        /*
         for (let i = 0; i < data.length; i++) {
           $('section.places').append(parsePlace(data[i]));
+          */
         }
       }
     });
