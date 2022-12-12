@@ -8,6 +8,9 @@ $(document).ready(function () {
     }
     $('.amenities h4').html(amenities.join(', '));
   });
+  
+  const jsonAmenities = Object.assign({}, amenities);
+  console.log(jsonAmenities)
 
   const placesUri = 'http://c66a74704532.93090521.hbtn-cod.io:5001/api/v1/places_search/';
 
@@ -23,13 +26,15 @@ $(document).ready(function () {
     }
   });
 
+  console.log(jsonAmenities);
+
   $('button').click(function () {
     $.ajax({
       url: placesUri,
       type: 'POST',
       contentType: 'application/json',
       data: '{}',
-      amenities: amenities,
+      amenities: jsonAmenities,
       success: function (data) {
         $('section.places').empty();
         /*
