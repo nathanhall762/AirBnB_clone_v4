@@ -17,9 +17,8 @@ $(document).ready(function () {
     contentType: 'application/json',
     data: '{}',
     success: function (data) {
-      console.log
       for (let i = 0; i < data.length; i++) {
-        buildPlaceArticle(data[i]);
+        $('section.places').append(parsePlace(data[i]));
       }
     }
   });
@@ -37,6 +36,35 @@ function getStatus (url) {
   });
 }
 
-function buildPlaceArticle (data) {
-  console.log(data);
+function parsePlace (place) {
+  console.log('into parse');
+  return placeBuilder(
+    place.name,
+    place.price_by_night,
+    place.max_guest,
+    place.number_rooms,
+    place.number_bathrooms,
+    place.description
+  );
+}
+
+function placeBuilder (title, priceByNight, maxGuest, numberRooms, numberBathrooms, description) {
+  console.log('into builder');
+  return `<article>
+      <div class="title_box">
+        <h2>${title}</h2>
+        <div class="price_by_night">$${priceByNight}</div>
+      </div>
+      <div class="information">
+        <div class="max_guest">${maxGuest} Guest(s)</div>
+              <div class="number_rooms">${numberRooms} Bedroom(s)</div>
+              <div class="number_bathrooms">${numberBathrooms} Bathroom(s)</div>
+      </div>
+      <div class="user">
+              <b>Owner:</b> {userFirstName} {userLastName}
+            </div>
+            <div class="description">
+        ${description}
+            </div>
+    </article>`;
 }
