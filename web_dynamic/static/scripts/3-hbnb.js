@@ -44,13 +44,11 @@ function parsePlace (place) {
     place.max_guest,
     place.number_rooms,
     place.number_bathrooms,
-    place.user.first_name,
-    place.user.last_name,
     place.description
-    );
+  );
 }
 
-function placeBuilder (title, priceByNight, maxGuest, numberRooms, numberBathrooms, userFirstName, userLastName, description) {
+function placeBuilder (title, priceByNight, maxGuest, numberRooms, numberBathrooms, description) {
   console.log('into builder');
   return `<article>
       <div class="title_box">
@@ -63,7 +61,7 @@ function placeBuilder (title, priceByNight, maxGuest, numberRooms, numberBathroo
               <div class="number_bathrooms">${numberBathrooms} Bathroom(s)</div>
       </div>
       <div class="user">
-              <b>Owner:</b> ${userFirstName} ${userLastName}
+              <b>Owner:</b> {userFirstName} {userLastName}
             </div>
             <div class="description">
         ${description}
