@@ -1,9 +1,12 @@
 $(document).ready(function () {
+  const amenityDict = {};
   const amenities = [];
   $('li :checkbox').change(function () {
     if (this.checked) {
+      amenityDict[$(this).data('id')] = $(this).data('name');
       amenities.push($(this).attr('data-name'));
     } else {
+      delete amenityDict[$(this).data('id')];
       amenities.pop();
     }
     $('.amenities h4').html(amenities.join(', '));
@@ -26,7 +29,7 @@ $(document).ready(function () {
     }
   });
 
-  console.log(jsonAmenities);
+  console.log(amenityDict);
 
   $('button').click(function () {
     $.ajax({
@@ -34,14 +37,12 @@ $(document).ready(function () {
       type: 'POST',
       contentType: 'application/json',
       data: '{}',
-      amenities: jsonAmenities,
+      amenities: JSON.stringify(amenityDict),
       success: function (data) {
         $('section.places').empty();
-        /*
         for (let i = 0; i < data.length; i++) {
           $('section.places').append(parsePlace(data[i]));
         }
-        */
       }
     });
   });
@@ -60,7 +61,6 @@ function getStatus (url) {
 }
 
 function parsePlace (place) {
-  console.log('into parse');
   return placeBuilder(
     place.name,
     place.price_by_night,
@@ -72,7 +72,6 @@ function parsePlace (place) {
 }
 
 function placeBuilder (title, priceByNight, maxGuest, numberRooms, numberBathrooms, description) {
-  console.log('into builder');
   return `<article>
       <div class="title_box">
         <h2>${title}</h2>
