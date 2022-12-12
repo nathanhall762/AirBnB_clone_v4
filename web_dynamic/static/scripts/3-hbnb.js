@@ -40,7 +40,7 @@ function getStatus (url) {
 function parsePlace (data) {
   console.log(data);
   for (let i = 0; i < data.length; i++) {
-    placeBuilder(place.name)
+    return placeBuilder(place.name)
   }
 }
 
