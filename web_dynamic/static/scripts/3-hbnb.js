@@ -17,7 +17,6 @@ $(document).ready(function () {
     contentType: 'application/json',
     data: '{}',
     success: function (data) {
-      console.log
       for (let i = 0; i < data.length; i++) {
         $('section.places').append(parsePlace(data[i]));
       }
@@ -37,29 +36,28 @@ function getStatus (url) {
   });
 }
 
-function parsePlace (data) {
-  console.log(data);
-  for (let i = 0; i < data.length; i++) {
-    return placeBuilder(place.name)
-  }
+function parsePlace (place) {
+  console.log('into parse');
+  return placeBuilder(place.name);
 }
 
-function placeBuilder(title) {
-return `<article>
-	  <div class="title_box">
-	    <h2>${title}</h2>
-	    <div class="price_by_night">{{ place.price_by_night }}</div>
-	  </div>
-	  <div class="information">
-	    <div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>
-            <div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>
-            <div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>
-	  </div>
-	  <div class="user">
-            <b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}
-          </div>
-          <div class="description">
-	    {{ place.description | safe }}
-          </div>
-	</article>`;
+function placeBuilder (title) {
+  console.log('into builder');
+  return `<article>
+      <div class="title_box">
+        <h2>${title}</h2>
+        <div class="price_by_night">{{ place.price_by_night }}</div>
+      </div>
+      <div class="information">
+        <div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>
+              <div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>
+              <div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>
+      </div>
+      <div class="user">
+              <b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}
+            </div>
+            <div class="description">
+        {{ place.description | safe }}
+            </div>
+    </article>`;
 }
