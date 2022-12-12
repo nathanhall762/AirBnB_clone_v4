@@ -17,7 +17,8 @@ $(document).ready(function () {
     contentType: 'application/json',
     data: '{}',
     success: function (data) {
-      for (let i = 0; i > data.length; i++) {
+      console.log
+      for (let i = 0; i < data.length; i++) {
         buildPlaceArticle(data[i]);
       }
     }
