@@ -17,7 +17,9 @@ $(document).ready(function () {
     contentType: 'application/json',
     data: '{}',
     success: function (data) {
-      console.log('POST request successful:', data);
+      for (let i = 0; i > data.length; i++) {
+        buildPlaceArticle(data[i]);
+      }
     }
   });
 
@@ -32,4 +34,8 @@ function getStatus (url) {
       $('div#api_status').removeClass('available');
     }
   });
+}
+
+function buildPlaceArticle (data) {
+  console.log(data);
 }
