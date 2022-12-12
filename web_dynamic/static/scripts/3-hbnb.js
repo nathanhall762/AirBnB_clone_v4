@@ -19,7 +19,7 @@ $(document).ready(function () {
     success: function (data) {
       console.log
       for (let i = 0; i < data.length; i++) {
-        $placesSection.append(parsePlace(data[i]));
+        $section.places.append(parsePlace(data[i]));
       }
     }
   });
