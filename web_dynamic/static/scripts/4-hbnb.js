@@ -35,8 +35,8 @@ $(document).ready(function () {
         /*
         for (let i = 0; i < data.length; i++) {
           $('section.places').append(parsePlace(data[i]));
-          */
         }
+        */
       }
     });
   });
