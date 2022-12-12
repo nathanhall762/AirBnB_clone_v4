@@ -4,7 +4,7 @@ $(document).ready(function () {
   $('li :checkbox').change(function () {
     if (this.checked) {
       amenityDict[$(this).data('id')] = $(this).data('name');
-      console.log($(this).data('name') + ' added to amenityDict. New amenityDict= ' + amenityDict[0]);
+      console.log($(this).data('name') + ' added to amenityDict. New amenityDict= ' + JSON.stringify(amenityDict));
       amenities.push($(this).attr('data-name'));
     } else {
       delete amenityDict[$(this).data('id')];
@@ -29,7 +29,7 @@ $(document).ready(function () {
 
   console.log('amenityDict:' + amenityDict);
 
-  $('button').click(function () {
+  $('button').on('click', function () {
     $.ajax({
       url: placesUri,
       type: 'POST',
