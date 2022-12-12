@@ -53,7 +53,7 @@ function placeBuilder (title, priceByNight, maxGuest, numberRooms, numberBathroo
   return `<article>
       <div class="title_box">
         <h2>${title}</h2>
-        <div class="price_by_night">${priceByNight}</div>
+        <div class="price_by_night">$${priceByNight}</div>
       </div>
       <div class="information">
         <div class="max_guest">${maxGuest} Guest(s)</div>
