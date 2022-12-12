@@ -3,11 +3,11 @@ $(document).ready(function () {
   const amenities = [];
   $('li :checkbox').change(function () {
     if (this.checked) {
-      amenityDict[$(this).data('id')] = $(this).data('name');
+      amenityDict.append($(this).data('name'));
       console.log($(this).data('name') + ' added to amenityDict. New amenityDict = ' + amenityDict);
       amenities.push($(this).attr('data-name'));
     } else {
-      delete amenityDict[$(this).data('id')];
+      delete amenityDict[$(this).data('name')];
       amenities.pop();
     }
     $('.amenities h4').html(amenities.join(', '));
