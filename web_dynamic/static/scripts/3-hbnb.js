@@ -43,11 +43,14 @@ function parsePlace (place) {
     place.price_by_night,
     place.max_guest,
     place.number_rooms,
-    place.number_bathrooms
+    place.number_bathrooms,
+    place.user.first_name,
+    place.user.last_name,
+    place.description
     );
 }
 
-function placeBuilder (title, priceByNight, maxGuest, numberRooms, numberBathrooms) {
+function placeBuilder (title, priceByNight, maxGuest, numberRooms, numberBathrooms, userFirstName, userLastName, description) {
   console.log('into builder');
   return `<article>
       <div class="title_box">
@@ -55,15 +58,15 @@ function placeBuilder (title, priceByNight, maxGuest, numberRooms, numberBathroo
         <div class="price_by_night">${priceByNight}</div>
       </div>
       <div class="information">
-        <div class="max_guest">${maxGuest} Guest{% if place.max_guest != 1 %}s{% endif %}</div>
-              <div class="number_rooms">${numberRooms} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>
-              <div class="number_bathrooms">${numberBathrooms} Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>
+        <div class="max_guest">${maxGuest} Guest(s)</div>
+              <div class="number_rooms">${numberRooms} Bedroom(s)</div>
+              <div class="number_bathrooms">${numberBathrooms} Bathroom(s)</div>
       </div>
       <div class="user">
-              <b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}
+              <b>Owner:</b> ${userFirstName} ${userLastName}
             </div>
             <div class="description">
-        {{ place.description | safe }}
+        ${description}
             </div>
     </article>`;
 }
