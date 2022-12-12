@@ -18,7 +18,7 @@ $(document).ready(function () {
     data: '{}',
     success: function (data) {
       for (let i = 0; i < data.length; i++) {
-        parsePlace(data[i]);
+        $('section.places').append(parsePlace(data[i]));
       }
     }
   });
@@ -32,7 +32,7 @@ $(document).ready(function () {
       amenities: amenities,
       success: function (data) {
         for (let i = 0; i < data.length; i++) {
-          parsePlace(data[i]);
+          $('section.places').prepend(parsePlace(data[i]));
         }
       }
     });
