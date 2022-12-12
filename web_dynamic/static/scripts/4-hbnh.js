@@ -23,6 +23,10 @@ $(document).ready(function () {
         }
       }
     });
+
+    $('button').click(function() {
+      alert( "Handler for .click() called." );
+    });
   
     getStatus('http://c66a74704532.93090521.hbtn-cod.io:5001/api/v1/status/');
   });
