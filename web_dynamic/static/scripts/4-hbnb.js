@@ -4,7 +4,7 @@ $(document).ready(function () {
   $('li :checkbox').change(function () {
     if (this.checked) {
       amenityDict[$(this).data('id')] = $(this).data('name');
-      console.log($(this).data('name') + ' added to amenityDict. New amenityDict= ' + amenityDict);
+      console.log($(this).data('name') + ' added to amenityDict. New amenityDict= ' + amenityDict[0]);
       amenities.push($(this).attr('data-name'));
     } else {
       delete amenityDict[$(this).data('id')];
