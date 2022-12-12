@@ -31,8 +31,8 @@ $(document).ready(function () {
       data: '{}',
       amenities: amenities,
       success: function (data) {
+        $('section.places').empty();
         for (let i = 0; i < data.length; i++) {
-          $('section.places').empty();
           $('section.places').append(parsePlace(data[i]));
         }
       }
