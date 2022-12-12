@@ -32,7 +32,8 @@ $(document).ready(function () {
       amenities: amenities,
       success: function (data) {
         for (let i = 0; i < data.length; i++) {
-          $('section.places').prepend(parsePlace(data[i]));
+          $('section.places').empty();
+          $('section.places').append(parsePlace(data[i]));
         }
       }
     });
