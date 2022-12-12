@@ -61,7 +61,6 @@ function placeBuilder (title, priceByNight, maxGuest, numberRooms, numberBathroo
               <div class="number_bathrooms">${numberBathrooms} Bathroom(s)</div>
       </div>
       <div class="user">
-              <b>Owner:</b> {userFirstName} {userLastName}
             </div>
             <div class="description">
         ${description}
